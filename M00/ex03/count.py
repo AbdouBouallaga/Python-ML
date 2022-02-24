@@ -4,9 +4,13 @@ punctuation and spaces in a given text."""
     if len(arv) > 1:
         print("ERROR")
         return
+    if len(arv) == 0:
+        print("What is the text to analyse?")
+        str = input()
+    else:
+        str = arv[0]
     import string
 
-    str = arv[0]
     up = 0
     low = 0
     punc = 0
