@@ -1,27 +1,18 @@
-from timeit import timeit
-
-
-def clr():
-    print("\033c", end="")
-
-i = 0
-
 def ft_progress(lst):
-    print(lst)
-    #print("\033c", end="")
     try:
         if start:
-            nothing = 1;
+            nothing = 1
     except Exception:
-        start = timeit()
-    print()
-
-
-if __name__ == "__main__":
-    listy = range(3333)
-    ret = 0
-    for elem in ft_progress(listy):
-        ret += elem
-        sleep(0.005)
-    print()
-    print(ret)
+        start = time.time()
+        last = 0
+    for n in lst:
+        progress = (n * 100) / max(lst)
+        n += 1
+        i = int(progress)
+        eta = (last - time.time()) * (max(lst) - n)*-1
+        print("ETA: "+str(round(eta))+"s ["+str(i)+"%][" +
+              '=' * int(i/5) + '>' + ' ' * (20 - int(i/5)) +
+              "] " + str(n) + "/" + str(1 + max(lst)) +
+              " elapsed time " + str(round(time.time() - start, 2)) + "s")
+        last = time.time()
+        yield n
