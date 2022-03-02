@@ -1,5 +1,5 @@
 def text_analyzer(*arv):
-    """This function counts the number of upper characters, lower characters,
+    """This function counts the number of upper characters, lower characters, \
 punctuation and spaces in a given text."""
     if len(arv) > 1:
         print("ERROR")

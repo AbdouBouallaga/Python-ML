@@ -12,8 +12,9 @@ deb = 0
 
 if len(args):
     for s in args:
-        if deb:
-            print(" ", end='')
-        swap(s)
-        deb += 1
+        if len(s) is not 0:
+            if deb:
+                print(" ", end='')
+            swap(s)
+            deb += 1
     print()
