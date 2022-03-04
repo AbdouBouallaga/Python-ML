@@ -43,6 +43,20 @@ class Vector:
             for i in self.values:
                 ret.append([i])
         return(Vector(ret))
+
+    def dot(self, vec2):
+        ret = 0
+        if self.shape == vec2.shape:
+            if any(isinstance(i, list) for i in self.values):
+                for x, w in zip(self.values, vec2.values):
+                    for i, j in zip(x, w):
+                        ret += i * j
+            else:
+                for i, j in zip(self.values, vec2.values):
+                    ret += i*j
+            return ret
+        else:
+            print("not same shape")
             
 
 v1 = Vector([[0.0,1.0,2.0]])
@@ -65,6 +79,9 @@ v4t = v4.T()
 print("print transpose v4\n", v4t.values)
 v4tb = v4t.T()
 print("print transpose back v4\n", v4tb.values)
+print("dot product of v2 and v2, same shape:", v2.dot(v2))
+print()
+print("dot product of v4t and v2 not same shape:", v4t.dot(v2))
 
 
 
